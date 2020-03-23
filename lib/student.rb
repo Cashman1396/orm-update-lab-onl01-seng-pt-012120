@@ -15,8 +15,7 @@ class Student
   
   def self.create_table
     sql =  <<-SQL 
-      CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, 
-        name TEXT, 
+      CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT, 
         grade TEXT
         )
     SQL
@@ -56,8 +55,7 @@ class Student
   end
 
   def self.find_by_name(name)
-    # find the student in the database given a name
-    # return a new instance of the Student class
+    
     sql = <<-SQL
       SELECT * FROM students WHERE name = ? LIMIT 1
     SQL
