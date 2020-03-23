@@ -34,8 +34,7 @@ class Student
       self.update
     else
       sql = <<-SQL
-        INSERT INTO students (name, grade) 
-        VALUES (?, ?)
+        INSERT INTO students (name, grade)VALUES (?, ?)
       SQL
 
       DB[:conn].execute(sql, self.name, self.grade)
@@ -61,10 +60,7 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
     sql = <<-SQL
-      SELECT *
-      FROM students
-      WHERE name = ?
-      LIMIT 1
+      SELECT * FROM students WHERE name = ? LIMIT 1
     SQL
 
     DB[:conn].execute(sql,name).map do |row|
